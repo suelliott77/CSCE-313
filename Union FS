@@ -1,1 +1,31 @@
+1a. What files do I see in dir1 when running "ls dir1:"
+- file1.txt
+- file2.txt
+- conflict.txt
+1b. What files do I see in dir2 when running "ls dir2:"
+- file3.txt
+- file4.txt
+- conflict.txt
 
+2. What do I see in union after running "ls union:"
+- file1.txt
+- file2.txt
+- file3.txt
+- file4.txt
+- conflict.txt
+Since two files have the same name from two separate directories, only one of the two is shown.
+UnionFS shows the file (if there are multiple of the same name) from the higher precedence filesystem, for these two
+dir1. So, conflict.txt from dir1 is shown inside of union. 
+
+3. What do I see after adding newfile.txt to dir1:
+- file1.txt
+- file2.txt
+- file3.txt
+- file4.txt
+- conflict.txt
+- newfile.txt
+After the union directory was made, the new file was added to dir1. It was shown in union because 
+UnionFS dynamically manages the view based on the underlying directories (dir1 and dir2).
+
+4. Command fusermount -u union: Unmounts the union directory. 
+While, rm -rf dir1 dir2 union: Deletes dir1, dir2, and union directories.
