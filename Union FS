@@ -7,6 +7,15 @@
 - file4.txt
 - conflict.txt
 
+Commands Used:
+mkdir dir1 dir2
+echo "File1 in dir1" > dir1/file1.txt
+echo "File2 in dir1" > dir1/file2.txt
+echo "File3 in dir2" > dir2/file3.txt
+echo "File4 in dir2" > dir2/file4.txt
+echo "Conflicting file in dir1" > dir1/conflict.txt
+echo "Conflicting file in dir2" > dir2/conflict.txt
+
 2. What do I see in union after running "ls union:"
 - file1.txt
 - file2.txt
@@ -16,6 +25,12 @@
 Since two files have the same name from two separate directories, only one of the two is shown.
 UnionFS shows the file (if there are multiple of the same name) from the higher precedence filesystem, for these two
 dir1. So, conflict.txt from dir1 is shown inside of union. 
+
+Commands Used:
+sudo apt-get install -y unionfs-fuse
+mkdir union
+unionfs-fuse dir1=RW:dir2=RW union
+ls union
 
 3. What do I see after adding newfile.txt to dir1:
 - file1.txt
@@ -27,5 +42,10 @@ dir1. So, conflict.txt from dir1 is shown inside of union.
 After the union directory was made, the new file was added to dir1. It was shown in union because 
 UnionFS dynamically manages the view based on the underlying directories (dir1 and dir2).
 
-4. Command fusermount -u union: Unmounts the union directory. 
+Commands Used:
+echo "New file in dir1" > dir1/newfile.txt
+ls union 
+
+4. Commands Used:
+fusermount -u union: Unmounts the union directory. 
 While, rm -rf dir1 dir2 union: Deletes dir1, dir2, and union directories.
