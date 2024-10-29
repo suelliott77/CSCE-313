@@ -1,1 +1,24 @@
-
+1. prov.*
+This command matches any string that starts with "prove" followed by more characters (could also be zero).
+Example: prov or providing 
+2. ^\w\d+
+This command matches strings that start with a word character followed by one or more digits 
+Example: a123
+3. <a\s*\w+=.*>
+This command matches "<a" and white space and any word character, "=", with no line breaks and ">"
+Example: <a href="dou">
+4. [123]+
+This command matches one or more occurrences of the characters 1, 2, or 3
+Example: 1 or 321
+5. [,]\W{2}
+This command matches a comma (,) followed by exactly two non-word characters (symbols)
+Example: ,!% or , $$
+6. ^[\d-]+
+Matches a string that starts with one or more digits 
+Example: 123 or 12-34
+7. \w+,$
+This command matches one or more letters or underscores that are immediately followed by a comma at the end
+Example: hello, abc123,
+8. li\w*
+This command matches any string that starts with "li" followed by none or more characters
+Example: list or like
