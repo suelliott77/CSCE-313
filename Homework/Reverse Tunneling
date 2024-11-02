@@ -1,7 +1,7 @@
-1.ssh -R 80:localhost:8080 suelliott77@10.128.0.2
+1. ssh -R 80:localhost:8080 suelliott77@10.128.0.2
 
 2. The first part is a connection setup in which the laptop initiates an SSH connection to 
-the GCP VM with reverse tunneling enabled. Then there is the listener creation where The 
+the GCP VM, enabling reverse tunneling. Then there is the listener creation where The 
 -R option configures the GCP VM to listen on port 80 and forward traffic from this port to 
 the laptop’s port 8080. Finally, request handling in which When a client accesses the GCP 
 VM on port 80, the SSH tunnel forwards this request to the web server on the laptop, which 
@@ -10,11 +10,11 @@ processes the request and sends back a response through the same SSH tunnel.
 3. The SSH reverse tunnel instructs the GCP VM to listen for connections on port 80 and 
 forward them to port 8080 on the laptop through the SSH connection. Any request received 
 on port 80 of the VM is automatically sent through the tunnel to the laptop’s port 8080, 
-allowing the client to reach the web server on the laptop despite it being behind a firewall.
+allowing the client to reach the web server on the computer despite it being behind a firewall.
 
-4. 
+4. Screenshot
 
-5. ssh -L 8080:localhost:80 suelliott77@10.128.0.2. This cammand does the opposite where it
-connects from the port on the laptop and have it forwardsed to a port on the VM. It just moves
+5. ssh -L 8080:localhost:80 suelliott77@10.128.0.2. This command does the opposite where it
+connects from the laptop port and has it forwarded to a port on the VM. It just moves
 in the opposite direction. 
 
