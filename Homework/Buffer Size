@@ -3,4 +3,10 @@
 Copying a small amount of data incurs a high overhead, as the system needs to make many more 
 read/write operations. The sys time is too high due to the increased number of system calls.
 With larger block sizes, the system needs to perform fewer read/write operations, which leads to
-a decrease in sys time. At the same time, the usr time might increase 
+a decrease in sys time. At the same time, the usr time might increase. 
+
+By running this program, you should observe that larger buffer sizes lead to better performance, 
+as the program reduces the number of system calls (e.g., read and write). You might notice 
+diminishing returns after a certain point (likely around 4 KB), beyond which increasing buffer 
+size further may not significantly reduce the copy time. This is due to system limitations and 
+the I/O characteristics of the underlying hardware and OS.
