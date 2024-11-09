@@ -1,0 +1,6 @@
+1. What can we conclude from the plot? 
+
+Copying a small amount of data incurs a high overhead, as the system needs to make many more 
+read/write operations. The sys time is too high due to the increased number of system calls.
+With larger block sizes, the system needs to perform fewer read/write operations, which leads to
+a decrease in sys time. At the same time, the usr time might increase 
