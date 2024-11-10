@@ -1,4 +1,4 @@
-1. ssh -R 80:localhost:8080 suelliott77@10.128.0.2
+1. ssh -R 80:localhost:8080 suelliott77@35.222.251.138
 
 2. The first part is a connection setup in which the laptop initiates an SSH connection to 
 the GCP VM, enabling reverse tunneling. Then there is the listener creation where The 
@@ -14,7 +14,7 @@ allowing the client to reach the web server on the computer despite it being beh
 
 4. Screenshot
 
-5. ssh -L 8080:localhost:80 suelliott77@10.128.0.2. This command does the opposite where it
+5. ssh -L 8080:localhost:80 suelliott77@35.222.251.138 This command does the opposite where it
 connects from the laptop port and has it forwarded to a port on the VM. It just moves
 in the opposite direction. 
 
